@@ -1,0 +1,43 @@
+{% extends 'stud_dashboard/base.html' %}
+{% block content %}
+<div class="container my-5">
+    <h1>WELCOME TO THE STUDENT MANAGEMENT DASHBOARD PAGE</h1>
+    <h2 class="text-center my-5 m-auto" style="border-bottom:2px solid #F3244D; width:270px;">Add New student</h2> 
+</div>
+<div class="container w-auto mb-2">
+  <div class="card rounded-sm">
+    <div class="card-body" style="background:#A54E14;">
+      <form action="add_student" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="regnum" class="fs-4" style="color:#040A2B;">Reg. Number</label>
+          <input type="text" class="form-control fs-4" name="regnum" id="regnum" required placeholder="Enter Your Roll">
+        </div>
+        <div class="form-group">
+          <label for="name" class="fs-4" style="color:#040A2B;">Name</label>
+          <input type="text" class="form-control fs-4" name="fullname" id="name" required placeholder="Enter Your Name">
+        </div>
+        <div class="form-group">
+          <label for="email" class="fs-4" style="color:#040A2B;">Email address</label>
+          <input type="email" class="form-control fs-4" name="email" id="email" required placeholder="youremail@gmail.com">
+        </div>
+        <div class="form-group">
+          <label for="address" class="fs-4" style="color:#040A2B;">Address</label>
+          <textarea class="form-control fs-4" name="address" id="address" rows="3" required placeholder="Enter your Address"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="phone" class="fs-4" style="color:#040A2B;">Phone Number</label>
+          <input type="text" class="form-control fs-4" name="phone" id="phone" required placeholder="Enter your Number">
+        </div>
+        <div class="form-group">
+          <label for="profile_pic" class="fs-4" style="color:#040A2B;">Upload Your Picture</label>
+          <input type="file" class="form-control fs-4" name="profile_pic" id="profile_pic" required placeholder="Enter your Number">
+        </div>
+        <div class="conatainer my-3 text-center">
+          <input type="submit" value="Submit" class="btn btn-outline-dark text-white fs-2 w-50"/>
+        </div>
+      </form> 
+    <div>
+  </div>
+</div>
+{% endblock %}
