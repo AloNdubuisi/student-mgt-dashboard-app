@@ -1,5 +1,5 @@
 {% extends 'stud_dashboard/base.html' %}
-
+{% block title %}Update Students{% endblock title %}
 {% block content %}
 
 <div class="container my-5">
@@ -30,6 +30,10 @@
         <div class="form-group">
           <label for="phone" class="fs-4" style="color:#040A2B;">Phone Number</label>
           <input type="text" class="form-control fs-4" name="phone" id="phone" placeholder="Enter your Number" required value="{{stud.phone}}">
+        </div>
+        <div class="form-group">
+          <label for="profile_pic" class="fs-4" style="color:#040A2B;">Profile Picture</label>
+          <input type="file" class="form-control fs-4" name="profile_pic" id="profile_pic" placeholder="Enter your Picture" required value="{{stud.profile_pic}}">
         </div>
         <div class="conatainer my-3 text-center">
           <input type="submit" value="Update" class="btn btn-outline-dark text-white fs-2 w-50"/>

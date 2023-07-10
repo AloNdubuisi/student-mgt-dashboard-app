@@ -1,57 +1,78 @@
-{% extends 'stud_dashboard/base.html' %}
-
-{% block content %}
+{% extends 'stud_dashboard/base.html' %} {% load static %} {% block content %}
 <div class="container my-5">
-    <h1>Hello,</h1>
-    <div class="col-lg-8 px-0">
-      <p class="fs-5">Welcome to our students management dashboard project</p>
-    </div>
-    <h1>THE STUDENT MANAGEMENT HOMEPAGE</h1>
-    <hr>
-    <h2 class="text-center" style="color:#E79964;">List of Students Added</h2>
+  <h1>Hello,</h1>
+  <div class="col-lg-8 px-0">
+    <p class="fs-5">Welcome to our students management dashboard project</p>
   </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-sm-12">
-        <div class="card">
-          <div class="card-body">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">SNO</th>
-                  <th scope="col">REG. NUMBER</th>
-                  <th scope="col">NAME</th>
-                  <th scope="col">EMAIL ADDRESS</th>
-                  <th scope="col">ADDRESS</th>
-                  <th scope="col">PHONE NUMBER</th>
-                  <th scope="col">PROFILE PICTURE</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for std in stud %}
-                <tr>
-                  <td>{{forloop.counter}}</td>
-                  <th>{{std.regnum}}</th>
-                  <td>{{std.fullname}}</td>
-                  <td>{{std.email}}</td>
-                  <td>{{std.address}}</td>
-                  <td>{{std.phone}}</td>
-                  <td>
-                    <div class="card" style="width: 8rem; height:6rem">
-                      <img src="{{std.profile_pic}}" class="card-img-top" alt="...">
-                    </div>
-                  </td>
-                  <td class="d-flex">
-                    <a href="delete_student/{{std.id}}"><i class="fa-sharp fa-solid fa-trash m-4" style="color:red;"></i></a>
-                    <a href="update_student/{{std.id}}"><i class="fa-solid fa-pen-to-square my-4" style="color:green;"></i></a>
-                  </td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
+  <h1>THE STUDENT MANAGEMENT HOMEPAGE</h1>
+  <hr />
+  <h2 class="text-center" style="color: #e79964">List of Students Added</h2>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">SNO</th>
+                <th scope="col">REG. NUMBER</th>
+                <th scope="col">NAME</th>
+                <th scope="col">EMAIL ADDRESS</th>
+                <th scope="col">ADDRESS</th>
+                <th scope="col">PHONE NUMBER</th>
+                <th scope="col">PROFILE PICTURE</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for std in stud %}
+              <tr>
+                <td>{{forloop.counter}}</td>
+                <th>{{std.regnum}}</th>
+                <td>{{std.fullname}}</td>
+                <td>{{std.email}}</td>
+                <td>{{std.address}}</td>
+                <td>{{std.phone}}</td>
+                <td>
+                  <div class="card" style="width: 8rem; height: 5rem">
+                    {% if std.profile_pic %}
+                    <img
+                      src="{{std.profile_pic.url}}"
+                      class="card-img-top"
+                      alt="Profile Picture"
+                    />
+                    {% else %}
+                    <!-- If the student does not have a profile picture, show a default placeholder image -->
+                    <img
+                      src="{% static 'images/alo.jpg' %}"
+                      class="card-img-top"
+                      alt="Profile Picture"
+                    />
+                    {% endif %}
+                  </div>
+                </td>
+                <td class="d-flex">
+                  <a href="delete_student/{{std.id}}"
+                    ><i
+                      class="fa-sharp fa-solid fa-trash m-4"
+                      style="color: red"
+                    ></i
+                  ></a>
+                  <a href="update_student/{{std.id}}"
+                    ><i
+                      class="fa-solid fa-pen-to-square my-4"
+                      style="color: green"
+                    ></i
+                  ></a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   </div>
+</div>
 {% endblock %}

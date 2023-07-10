@@ -1,5 +1,7 @@
 {% extends 'stud_dashboard/base.html' %}
+{% block title %}Add Students{% endblock title %}
 {% block content %}
+{% load static %}
 <div class="container my-5">
     <h1>WELCOME TO THE STUDENT MANAGEMENT DASHBOARD PAGE</h1>
     <h2 class="text-center my-5 m-auto" style="border-bottom:2px solid #F3244D; width:270px;">Add New student</h2> 
@@ -31,7 +33,7 @@
         </div>
         <div class="form-group">
           <label for="profile_pic" class="fs-4" style="color:#040A2B;">Upload Your Picture</label>
-          <input type="file" class="form-control fs-4" name="profile_pic" id="profile_pic" required placeholder="Enter your Number">
+          <input type="file" class="form-control fs-4" name="profile_pic" id="profile_pic" required placeholder="uploadt your Picture">
         </div>
         <div class="conatainer my-3 text-center">
           <input type="submit" value="Submit" class="btn btn-outline-dark text-white fs-2 w-50"/>

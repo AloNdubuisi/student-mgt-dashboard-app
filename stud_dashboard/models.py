@@ -7,4 +7,4 @@ class Student(models.Model):
     email = models.CharField(max_length=150)
     address = models.CharField(max_length=200)
     phone = models.CharField(max_length=10)
-    profile_pic = models.ImageField(null=True, blank=True)
+    profile_pic = models.ImageField(upload_to='media')

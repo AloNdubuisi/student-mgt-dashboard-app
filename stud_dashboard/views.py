@@ -15,6 +15,7 @@ def add_student(request):
         email = request.POST.get('email')
         address = request.POST.get('address')
         phone = request.POST.get('phone')
+        profile_pic = request.FILES.get('profile_pic')
         
         # Creating objects of the class "Student" using student as the obect
         student = Student()
@@ -23,6 +24,7 @@ def add_student(request):
         student.email=email
         student.address=address
         student.phone=phone
+        student.profile_pic=profile_pic
         
         # saving all the inputs made by the student
         student.save() 
@@ -48,6 +50,7 @@ def edit_update_student(request, regnum):
         student.email = request.POST.get('email')
         student.address = request.POST.get('address')
         student.phone = request.POST.get('phone')
+        profile_pic = request.FILES.get('profile_pic')
         student.save()
     
         return redirect('index')
